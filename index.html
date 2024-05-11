@@ -3,25 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+    .weatherapp{
+    background:white ;
+    max-width: 600px;
+    margin: 45px;
+    box-shadow: 45px;
+    border-radius: 16px;
+    padding: 30px;
+    }
+    body{
+      background-color: #f9f7fe;
+    
+    }
+    header{
+      border-bottom: 1px solid #f9f7fe;
+      padding: 0 0 30px 0;
+    }
+    .search-button{
+      background:#885df1 ;
+      padding: 15px 30px;
+      border: none;
+      font-size: 16px;
+      margin-left: 5px;
+      border-radius: 6px;
+      color: white;
+
+    }
+    .searh-form-input{
+      background-color: #f9f7fe;
+      padding: 15px 30px;
+      border: none;
+      font-size: 16px;
+     width: 80%;
+      border-radius: 6px;
+     
+    }
+    main{
+      padding: 30px 0;
+    }
+    footer{
+      border-top:1px solid #f9f7fe;
+      padding: 30px 0 0  0;
+      text-align: center;
+      font-size: 14px;
+      color: rgba(0, 0 ,0 , 0 , 6);
+    }
+   a{
+    color: #885df1;
+   }
+   
+
+   </style>
+   
     <title>WeatherCast app</title>
+   
 </head>
 <body>
+  <div class="weatherapp">
     <header>
-        <form>
-           <input type = "search" placeholder="Enter a city.." required/>
-            <input type =  "submit" value = Search > 
-        </form>
+        <form >
+           <input type = "search" placeholder="Enter a city." required class="searh-form-input"/>
+            <input type =  "submit" value = "Search" class="search-button" > 
+        </form >
     </header>
    <main>
+    <div class="weatherapp-data">
     <h1> Paris</h1>
     <div>
-     <p>
+     <p class="weatherapp-details">
         Tuesday14:49 , scatterd clouds
         <br/>
         Humidity:66%, Wind: 3.13km/h
      </p>
     </div>
-    <div>⛅12℃</div> 
+     <div class="weather-icon">⛅12℃</div> 
+    </div>
    </main>
 
   <footer> Coded by 
@@ -29,5 +86,6 @@
     <a href ="https://github.com/MpaballengLebenya/WeatherCast"> Github</a> and hotsed 
     <a href = "https://applicationcast.netlify.app/">on netlify</a>
   </footer>
+</div>
 </body>
 </html>
