@@ -52,6 +52,41 @@
    a{
     color: #885df1;
    }
+   .weather-icon
+{
+     display: flex;
+     justify-content: space-between;
+
+   }
+   h1{
+    margin: 0;
+    font-size: 38px;
+    line-height: 48px;
+   }
+   .degrees{
+    color: #f65282;
+   }
+   .weather-countainer{
+    display: flex;
+    margin-left: 400px;
+    margin-top: -100px;
+   }
+   .weather-icon{
+    font-size:44px;
+    margin-top: 22px;
+
+   }
+   .weathr-temp{
+    font-size: 66px;
+    margin-left: 10px;
+    font-weight: bold;
+
+   }
+   .weather-unit{
+    font-size: 16px;
+ margin-top: 16px;
+
+   }
    
 
    </style>
@@ -68,17 +103,21 @@
         </form >
     </header>
    <main>
-    <div class="weatherapp-data">
+   <div class="weatherapp-data">
     <h1> Paris</h1>
     <div>
      <p class="weatherapp-details">
         Tuesday14:49 , scatterd clouds
         <br/>
-        Humidity:66%, Wind: 3.13km/h
+        Humidity:<strong class="degrees">66%</strong>, Wind:<strong class="degrees">3.13km/h</strong> 
      </p>
-    </div>
-     <div class="weather-icon">⛅12℃</div> 
-    </div>
+     <div class="weather-countainer">
+     
+     <div class="weather-icon">⛅</div>
+      <div class="weathr-temp">12</div>
+      <div class="weather-unit">℃ </div>
+    
+  </div>
    </main>
 
   <footer> Coded by 
