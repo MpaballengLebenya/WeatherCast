@@ -69,15 +69,16 @@
    .weather-countainer{
     display: flex;
     margin-left: 400px;
-    margin-top: -100px;
+    margin-top: -80px;
    }
    .weather-icon{
     font-size:44px;
     margin-top: 22px;
+   
 
    }
    .weathr-temp{
-    font-size: 66px;
+    font-size: 55px;
     margin-left: 10px;
     font-weight: bold;
 
@@ -90,6 +91,7 @@
    
 
    </style>
+   <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
    
     <title>WeatherCast app</title>
    
@@ -114,8 +116,8 @@
      <div class="weather-countainer">
      
      <div class="weather-icon">⛅</div>
-      <div class="weathr-temp">12</div>
-      <div class="weather-unit">℃ </div>
+      <div class="weathr-temp" id = "temperature">12</div>
+      <div class="weather-unit" >℃ </div>
     
   </div>
    </main>
@@ -127,13 +129,29 @@
   </footer>
 </div>
 <script>
+function refreshweather(response){
+  
+  let temperatureElement= document.querySelector("#temperature");
+  temperatureElement.innerHTML = response.data.temperature.current;
+  
+}
+
+
+function searchCity(city){
+let apikey= "aa0f388ee1bfo08c46d60d943t1d7397"
+let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&units=metric`;
+axios.get(apiUrl).then(refreshweather)
+}
+
+
   function handleSearchSubmit(event){
   event.preventDefault();
   let searchInput= document.querySelector("#searh-form-input")
- 
-   let cityElement = document.querySelector("#city");
+    let cityElement = document.querySelector("#city");
    cityElement.innerHTML= searchInput.value;
+   searchCity(searchInput.value);
   }
+
   let searchFormElement = document.querySelector("#search-form");
  searchFormElement.addEventListener("submit", handleSearchSubmit);
 </script>
