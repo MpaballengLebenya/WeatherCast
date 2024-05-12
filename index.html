@@ -97,14 +97,14 @@
 <body>
   <div class="weatherapp">
     <header>
-        <form >
-           <input type = "search" placeholder="Enter a city." required class="searh-form-input"/>
+        <form  id="search-form">
+           <input type = "search" placeholder="Enter a city." required class="searh-form-input" id ="searh-form-input" />
             <input type =  "submit" value = "Search" class="search-button" > 
         </form >
     </header>
    <main>
    <div class="weatherapp-data">
-    <h1> Paris</h1>
+    <h1 id = "city"> Paris</h1>
     <div>
      <p class="weatherapp-details">
         Tuesday14:49 , scatterd clouds
@@ -126,5 +126,16 @@
     <a href = "https://applicationcast.netlify.app/">on netlify</a>
   </footer>
 </div>
+<script>
+  function handleSearchSubmit(event){
+  event.preventDefault();
+  let searchInput= document.querySelector("#searh-form-input")
+ 
+   let cityElement = document.querySelector("#city");
+   cityElement.innerHTML= searchInput.value;
+  }
+  let searchFormElement = document.querySelector("#search-form");
+ searchFormElement.addEventListener("submit", handleSearchSubmit);
+</script>
 </body>
 </html>
