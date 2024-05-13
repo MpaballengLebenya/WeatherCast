@@ -110,9 +110,9 @@
     <h1 id = "city"> Paris</h1>
     <div>
      <p class="weatherapp-details">
-        Tuesday14:49 , scatterd clouds
+        Tuesday14:49 , <span id ="discription">scatterd clouds</span>
         <br/>
-        Humidity:<strong class="degrees">66%</strong>, Wind:<strong class="degrees">3.13km/h</strong> 
+        Humidity:<strong class="degrees"id ="humidity"></strong>, Wind:<strong class="degrees" id ="speed"></strong> 
      </p>
      <div class="weather-countainer">
      
@@ -125,7 +125,7 @@
 
   <footer> Coded by 
     <a href = "https://github.com/MpaballengLebenya"> MpaballengLebenya</a> outsourced on
-    <a href ="https://github.com/MpaballengLebenya/WeatherCast"> Github</a> and hotsed 
+    <a href ="https://github.com/MpaballengLebenya/WeatherCast"> Github</a> and hosted 
     <a href = "https://applicationcast.netlify.app/">on netlify</a>
   </footer>
 </div>
@@ -134,7 +134,13 @@ function refreshweather(response){
   
   let temperatureElement= document.querySelector("#temperature");
   temperatureElement.innerHTML = response.data.temperature.current;
+  let discriptionElement = document.querySelector("#discription");
+  let humidityElement =document.querySelector("#humidity");
+  let speedElement =document.querySelector("#speed");
 
+discriptionElement.innerHTML= response.data.temperature.discription;
+humidityElement.innerHTML= `${response.data.temperature.humidity }%`;
+speedElement.innerHTML =`${ response.data.Wind.speeed}km/h`;
 }
 
 
@@ -142,6 +148,7 @@ function searchCity(city){
 let apikey= "aa0f388ee1bfo08c46d60d943t1d7397"
 let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&units=metric`;
 axios.get(apiUrl).then(refreshweather)
+
 }
 
 
