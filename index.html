@@ -110,7 +110,7 @@
     <h1 id = "city"> Paris</h1>
     <div>
      <p class="weatherapp-details">
-        Tuesday14:49 , <span id ="discription">scatterd clouds</span>
+        <span id = "time">Tuesday14:49</span> , <span id ="discription">scatterd clouds</span>
         <br/>
         Humidity:<strong class="degrees"id ="humidity"></strong>, Wind:<strong class="degrees" id ="speed"></strong> 
      </p>
@@ -134,14 +134,38 @@ function refreshweather(response){
   
   let temperatureElement= document.querySelector("#temperature");
   temperatureElement.innerHTML = response.data.temperature.current;
+  
   let discriptionElement = document.querySelector("#discription");
   let humidityElement =document.querySelector("#humidity");
   let speedElement =document.querySelector("#speed");
+  let timeElement = document.querySelector("#time");
+  let date = new Date (response.data.time*1000);
 
-discriptionElement.innerHTML= response.data.temperature.discription;
+discriptionElement.innerHTML= response.data.condition.discription;
 humidityElement.innerHTML= `${response.data.temperature.humidity }%`;
-speedElement.innerHTML =`${ response.data.Wind.speeed}km/h`;
+speedElement.innerHTML =`${ response.data.wind.speed}km/h`;
+timeElement.innerHTML = formatDate(date);
 }
+
+function formatDate(date){
+  
+  let hours =date.getHours();
+  let minutes = date.getMinutes();
+  let days = ["Sunday", 
+             "Monday" , 
+             "Tuesday" ,
+             "Wednsday" ,
+             "Thursday" ,
+              "Friday" ,
+             "Sartuday"];
+  let day = days[date.getDay()];
+
+  if (minutes<10){
+    minutes=`0${minutes}`;
+  }
+
+    return`${day} ${hours} :${minutes}`;
+  }
 
 
 function searchCity(city){
