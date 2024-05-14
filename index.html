@@ -142,6 +142,7 @@ function refreshweather(response){
   let date = new Date (response.data.time*1000);
 
 discriptionElement.innerHTML= response.data.condition.discription;
+
 humidityElement.innerHTML= `${response.data.temperature.humidity }%`;
 speedElement.innerHTML =`${ response.data.wind.speed}km/h`;
 timeElement.innerHTML = formatDate(date);
